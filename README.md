@@ -31,7 +31,7 @@
 1. Создать Deployment приложения, состоящего из контейнеров busybox и multitool.
 
 
-[deployment.yaml]()
+[deployment.yaml](https://github.com/12sergey12/12.1-Kubernetes_Storage-in-K8s.-Part-1/blob/main/deployment.yaml)
 
 ```
 apiVersion: apps/v1
@@ -109,7 +109,7 @@ Fri Mar 15 15:01:15 UTC 2024
 
 5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 
-[deployment.yaml]()
+[deployment.yaml](https://github.com/12sergey12/12.1-Kubernetes_Storage-in-K8s.-Part-1/blob/main/deployment.yaml)
 
 
 ```
@@ -141,7 +141,7 @@ Fri Mar 15 15:01:15 UTC 2024
 
 1. Создать DaemonSet приложения, состоящего из multitool.
 
-[DaemonSet_multitool.yml]()
+[DaemonSet_multitool.yml](https://github.com/12sergey12/12.1-Kubernetes_Storage-in-K8s.-Part-1/blob/main/DaemonSet_multitool.yml)
 
 ```
 apiVersion: apps/v1 # Версия api изменилось и теперь выглядит так
@@ -300,7 +300,7 @@ logs-multitool-8vpwr:/# exit
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
 
 
-[DaemonSet_multitool.yml]()
+[DaemonSet_multitool.yml](https://github.com/12sergey12/12.1-Kubernetes_Storage-in-K8s.-Part-1/blob/main/DaemonSet_multitool.yml)
 
 ```
 root@baranov:/home/baranovsa/kube-2.1# kubectl exec -n default logs-multitool-8vpwr -it -- bash
