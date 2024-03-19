@@ -1,0 +1,24 @@
+apiVersion: apps/v1 # Версия api изменилось и теперь выглядит так
+kind: DaemonSet # Тип уже не деплоймент, а демонсет
+metadata:
+  name: logs-multitool # Имя демонсета
+  namespace: default
+spec:
+  selector: # Селектор на наши метки
+    matchLabels:
+      app: logs-multitool
+  template: # Шаблон ПОДа
+    metadata:
+      labels: # Метки, которые будут установлены при запуске ПОДа из этого шаблона
+        app: logs-multitool
+    spec:
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool
+          volumeMounts: # Монтируем вольюм с именем log-volume в контейнер multitool
+            - mountPath: "/log_data"
+              name: log-volume
+      volumes:
+        - name: log-volume # Описываем вольюм хостпас с именем log-volume
+          hostPath:
+            path: /var/log

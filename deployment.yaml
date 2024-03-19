@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-01
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apps
+  template:
+    metadata:
+      labels:
+        app: apps
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["/bin/sh", "-c", "while true;do date>>/data/date.txt;sleep 5;done"]
+        volumeMounts:
+          - mountPath: "/data"
+            name: volume-01
+      - name: multitool
+        image: wbitt/network-multitool
+        ports:
+        - containerPort: 80
+          name: http
+        - containerPort: 443
+          name: https
+        volumeMounts:
+          - mountPath: "/data"
+            name: volume-01
+      volumes:
+        - name: volume-01
+          emptyDir: {}
